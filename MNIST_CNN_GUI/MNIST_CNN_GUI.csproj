@@ -59,7 +59,7 @@
     <Compile Include="src\MachineLearning\CNN\FeatureMap.cs" />
     <Compile Include="src\MachineLearning\CNN\MaxPool.cs" />
     <Compile Include="src\MachineLearning\ConfusionMatrix.cs" />
-    <Compile Include="src\MachineLearning\IDataSet.cs" />
+    <Compile Include="src\MachineLearning\ISupervisedDataSet.cs" />
     <Compile Include="src\MachineLearning\Layer.cs" />
     <Compile Include="src\MachineLearning\LearningRate.cs" />
     <Compile Include="src\MachineLearning\NeuralNetwork.cs" />

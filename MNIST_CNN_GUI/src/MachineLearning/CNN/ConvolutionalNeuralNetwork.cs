@@ -51,10 +51,10 @@ namespace MachineLearning
             m_ActivationFunction.FunctionLearningRate = 0.075f;
         }
 
-        public override bool UploadTrainingSet(IDataSet[] trainingSet)
+        public override bool UploadTrainingSet(ISupervisedDataSet[] trainingSet)
         {
-            if (trainingSet == null || trainingSet[0].ExpectedOutputSet == null || trainingSet[0].InputSet == null ||
-               trainingSet[0].InputSet.Length != Props.InputSize || trainingSet[0].ExpectedOutputSet.Length != NumOutputs)
+            if (trainingSet == null || trainingSet[0].ExpectedOutput == null || trainingSet[0].Input == null ||
+               trainingSet[0].Input.Length != Props.InputSize || trainingSet[0].ExpectedOutput.Length != NumOutputs)
             {
                 return false;
             }
@@ -65,10 +65,10 @@ namespace MachineLearning
             return true;
         }
 
-        public override bool UploadTestSet(IDataSet[] testSet)
+        public override bool UploadTestSet(ISupervisedDataSet[] testSet)
         {
-            if (testSet == null || testSet[0].InputSet == null || testSet[0].ExpectedOutputSet == null ||
-               testSet[0].InputSet.Length != Props.InputSize || testSet[0].ExpectedOutputSet.Length != NumOutputs)
+            if (testSet == null || testSet[0].Input == null || testSet[0].ExpectedOutput == null ||
+               testSet[0].Input.Length != Props.InputSize || testSet[0].ExpectedOutput.Length != NumOutputs)
             {
                 return false;
             }

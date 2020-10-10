@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class MnistImage : MachineLearning.IDataSet
+class MnistImage : MachineLearning.ISupervisedDataSet
 {
     public float[] Pixels;
     public int Width, Height;
@@ -37,10 +37,10 @@ class MnistImage : MachineLearning.IDataSet
         Pixels = Width > 0 && Height > 0 ? new float[Width * Height] : null;
 
         Label_ = label;
-        ExpectedOutputSet = new float[10];
+        ExpectedOutput = new float[10];
         if (label >= 0 && label <= 9)
         {
-            ExpectedOutputSet[label] = 1;
+            ExpectedOutput[label] = 1;
         }
     }
 
@@ -51,12 +51,12 @@ class MnistImage : MachineLearning.IDataSet
             return;
         }
         Label_ = label;
-        ExpectedOutputSet[label] = 1;
+        ExpectedOutput[label] = 1;
     }
 
     #region IDataSet Implementation
-    public float[] InputSet { get { return Pixels; } set { Pixels = value; } }
-    public float[] ExpectedOutputSet { get; set; }
+    public float[] Input { get { return Pixels; } set { Pixels = value; } }
+    public float[] ExpectedOutput { get; set; }
     #endregion
 
     public enum MessageSection

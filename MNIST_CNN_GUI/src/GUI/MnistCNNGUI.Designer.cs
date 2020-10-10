@@ -52,29 +52,26 @@
             // MnistPictureBox
             // 
             this.MnistPictureBox.BackColor = System.Drawing.Color.Black;
-            this.MnistPictureBox.Location = new System.Drawing.Point(252, 81);
-            this.MnistPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MnistPictureBox.Location = new System.Drawing.Point(189, 66);
             this.MnistPictureBox.Name = "MnistPictureBox";
-            this.MnistPictureBox.Size = new System.Drawing.Size(37, 34);
+            this.MnistPictureBox.Size = new System.Drawing.Size(28, 28);
             this.MnistPictureBox.TabIndex = 0;
             this.MnistPictureBox.TabStop = false;
             // 
             // MnistImageLabel
             // 
             this.MnistImageLabel.AutoSize = true;
-            this.MnistImageLabel.Location = new System.Drawing.Point(297, 100);
-            this.MnistImageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MnistImageLabel.Location = new System.Drawing.Point(223, 81);
             this.MnistImageLabel.Name = "MnistImageLabel";
-            this.MnistImageLabel.Size = new System.Drawing.Size(101, 17);
+            this.MnistImageLabel.Size = new System.Drawing.Size(77, 13);
             this.MnistImageLabel.TabIndex = 1;
             this.MnistImageLabel.Text = "Image Label: 1";
             // 
             // TrainButton
             // 
-            this.TrainButton.Location = new System.Drawing.Point(16, 196);
-            this.TrainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TrainButton.Location = new System.Drawing.Point(12, 159);
             this.TrainButton.Name = "TrainButton";
-            this.TrainButton.Size = new System.Drawing.Size(163, 55);
+            this.TrainButton.Size = new System.Drawing.Size(122, 45);
             this.TrainButton.TabIndex = 2;
             this.TrainButton.Text = "Train 1 Epoch";
             this.TrainButton.UseVisualStyleBackColor = true;
@@ -82,10 +79,9 @@
             // 
             // TestImageButton
             // 
-            this.TestImageButton.Location = new System.Drawing.Point(252, 139);
-            this.TestImageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TestImageButton.Location = new System.Drawing.Point(189, 113);
             this.TestImageButton.Name = "TestImageButton";
-            this.TestImageButton.Size = new System.Drawing.Size(163, 28);
+            this.TestImageButton.Size = new System.Drawing.Size(122, 23);
             this.TestImageButton.TabIndex = 3;
             this.TestImageButton.Text = "Test on Image";
             this.TestImageButton.UseVisualStyleBackColor = true;
@@ -93,30 +89,27 @@
             // 
             // ImageSelectionTextBox
             // 
-            this.ImageSelectionTextBox.Location = new System.Drawing.Point(252, 49);
-            this.ImageSelectionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImageSelectionTextBox.Location = new System.Drawing.Point(189, 40);
             this.ImageSelectionTextBox.Name = "ImageSelectionTextBox";
-            this.ImageSelectionTextBox.Size = new System.Drawing.Size(132, 22);
+            this.ImageSelectionTextBox.Size = new System.Drawing.Size(100, 20);
             this.ImageSelectionTextBox.TabIndex = 4;
             this.ImageSelectionTextBox.TextChanged += new System.EventHandler(this.ImageSelectionTextBox_TextChanged);
             // 
             // ImageSelectionlabel
             // 
             this.ImageSelectionlabel.AutoSize = true;
-            this.ImageSelectionlabel.Location = new System.Drawing.Point(248, 30);
-            this.ImageSelectionlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ImageSelectionlabel.Location = new System.Drawing.Point(186, 24);
             this.ImageSelectionlabel.Name = "ImageSelectionlabel";
-            this.ImageSelectionlabel.Size = new System.Drawing.Size(200, 17);
+            this.ImageSelectionlabel.Size = new System.Drawing.Size(148, 13);
             this.ImageSelectionlabel.TabIndex = 5;
             this.ImageSelectionlabel.Text = "Choose image to test (0-9999)";
             // 
             // UseTrainingSetCheckBox
             // 
             this.UseTrainingSetCheckBox.AutoSize = true;
-            this.UseTrainingSetCheckBox.Location = new System.Drawing.Point(252, 5);
-            this.UseTrainingSetCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UseTrainingSetCheckBox.Location = new System.Drawing.Point(189, 4);
             this.UseTrainingSetCheckBox.Name = "UseTrainingSetCheckBox";
-            this.UseTrainingSetCheckBox.Size = new System.Drawing.Size(218, 21);
+            this.UseTrainingSetCheckBox.Size = new System.Drawing.Size(164, 17);
             this.UseTrainingSetCheckBox.TabIndex = 6;
             this.UseTrainingSetCheckBox.Text = "Use images from training set?";
             this.UseTrainingSetCheckBox.UseVisualStyleBackColor = true;
@@ -126,10 +119,9 @@
             // 
             this.InvalidImageLabel.AutoSize = true;
             this.InvalidImageLabel.ForeColor = System.Drawing.Color.Red;
-            this.InvalidImageLabel.Location = new System.Drawing.Point(393, 53);
-            this.InvalidImageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.InvalidImageLabel.Location = new System.Drawing.Point(295, 43);
             this.InvalidImageLabel.Name = "InvalidImageLabel";
-            this.InvalidImageLabel.Size = new System.Drawing.Size(48, 17);
+            this.InvalidImageLabel.Size = new System.Drawing.Size(38, 13);
             this.InvalidImageLabel.TabIndex = 7;
             this.InvalidImageLabel.Text = "Invalid";
             this.InvalidImageLabel.Visible = false;
@@ -137,58 +129,52 @@
             // PredictionLabel
             // 
             this.PredictionLabel.AutoSize = true;
-            this.PredictionLabel.Location = new System.Drawing.Point(247, 119);
-            this.PredictionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PredictionLabel.Location = new System.Drawing.Point(185, 97);
             this.PredictionLabel.Name = "PredictionLabel";
-            this.PredictionLabel.Size = new System.Drawing.Size(196, 17);
+            this.PredictionLabel.Size = new System.Drawing.Size(152, 13);
             this.PredictionLabel.TabIndex = 8;
             this.PredictionLabel.Text = "Network Label Prediction: N/A";
             // 
             // TrainingProgressLabel
             // 
             this.TrainingProgressLabel.AutoSize = true;
-            this.TrainingProgressLabel.Location = new System.Drawing.Point(17, 59);
-            this.TrainingProgressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TrainingProgressLabel.Location = new System.Drawing.Point(13, 48);
             this.TrainingProgressLabel.Name = "TrainingProgressLabel";
-            this.TrainingProgressLabel.Size = new System.Drawing.Size(148, 17);
+            this.TrainingProgressLabel.Size = new System.Drawing.Size(111, 13);
             this.TrainingProgressLabel.TabIndex = 9;
             this.TrainingProgressLabel.Text = "Network Progress: 0%";
             // 
             // TrainingProgressBar
             // 
-            this.TrainingProgressBar.Location = new System.Drawing.Point(17, 79);
-            this.TrainingProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TrainingProgressBar.Location = new System.Drawing.Point(13, 64);
             this.TrainingProgressBar.Name = "TrainingProgressBar";
-            this.TrainingProgressBar.Size = new System.Drawing.Size(163, 28);
+            this.TrainingProgressBar.Size = new System.Drawing.Size(122, 23);
             this.TrainingProgressBar.TabIndex = 10;
             // 
             // TrainingSensLabel
             // 
             this.TrainingSensLabel.AutoSize = true;
-            this.TrainingSensLabel.Location = new System.Drawing.Point(17, 116);
-            this.TrainingSensLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TrainingSensLabel.Location = new System.Drawing.Point(13, 94);
             this.TrainingSensLabel.Name = "TrainingSensLabel";
-            this.TrainingSensLabel.Size = new System.Drawing.Size(158, 17);
+            this.TrainingSensLabel.Size = new System.Drawing.Size(121, 13);
             this.TrainingSensLabel.TabIndex = 12;
             this.TrainingSensLabel.Text = "Training Sensitivity: N/A";
             // 
             // TestingSensLabel
             // 
             this.TestingSensLabel.AutoSize = true;
-            this.TestingSensLabel.Location = new System.Drawing.Point(17, 149);
-            this.TestingSensLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TestingSensLabel.Location = new System.Drawing.Point(13, 121);
             this.TestingSensLabel.Name = "TestingSensLabel";
-            this.TestingSensLabel.Size = new System.Drawing.Size(153, 17);
+            this.TestingSensLabel.Size = new System.Drawing.Size(118, 13);
             this.TestingSensLabel.TabIndex = 13;
             this.TestingSensLabel.Text = "Testing Sensitivity: N/A";
             // 
             // TotalEpochLabel
             // 
             this.TotalEpochLabel.AutoSize = true;
-            this.TotalEpochLabel.Location = new System.Drawing.Point(19, 176);
-            this.TotalEpochLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TotalEpochLabel.Location = new System.Drawing.Point(14, 143);
             this.TotalEpochLabel.Name = "TotalEpochLabel";
-            this.TotalEpochLabel.Size = new System.Drawing.Size(160, 17);
+            this.TotalEpochLabel.Size = new System.Drawing.Size(121, 13);
             this.TotalEpochLabel.TabIndex = 14;
             this.TotalEpochLabel.Text = "Total Trained Epochs: 0";
             // 
@@ -201,30 +187,30 @@
             "3",
             "4",
             "5",
-            "10"});
-            this.NumEpochsComboBox.Location = new System.Drawing.Point(23, 30);
-            this.NumEpochsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            "10",
+            "15",
+            "20",
+            "25"});
+            this.NumEpochsComboBox.Location = new System.Drawing.Point(17, 24);
             this.NumEpochsComboBox.Name = "NumEpochsComboBox";
-            this.NumEpochsComboBox.Size = new System.Drawing.Size(160, 24);
+            this.NumEpochsComboBox.Size = new System.Drawing.Size(121, 21);
             this.NumEpochsComboBox.TabIndex = 15;
             this.NumEpochsComboBox.SelectedIndexChanged += new System.EventHandler(this.NumEpochsComboBox_SelectedIndexChanged);
             // 
             // NumEpochsLabel
             // 
             this.NumEpochsLabel.AutoSize = true;
-            this.NumEpochsLabel.Location = new System.Drawing.Point(21, 6);
-            this.NumEpochsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NumEpochsLabel.Location = new System.Drawing.Point(16, 5);
             this.NumEpochsLabel.Name = "NumEpochsLabel";
-            this.NumEpochsLabel.Size = new System.Drawing.Size(201, 17);
+            this.NumEpochsLabel.Size = new System.Drawing.Size(150, 13);
             this.NumEpochsLabel.TabIndex = 16;
             this.NumEpochsLabel.Text = "Number of Epochs per training";
             // 
             // CancelNetworkButton
             // 
-            this.CancelNetworkButton.Location = new System.Drawing.Point(17, 260);
-            this.CancelNetworkButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelNetworkButton.Location = new System.Drawing.Point(13, 211);
             this.CancelNetworkButton.Name = "CancelNetworkButton";
-            this.CancelNetworkButton.Size = new System.Drawing.Size(161, 28);
+            this.CancelNetworkButton.Size = new System.Drawing.Size(121, 23);
             this.CancelNetworkButton.TabIndex = 17;
             this.CancelNetworkButton.Text = "Cancel";
             this.CancelNetworkButton.UseVisualStyleBackColor = true;
@@ -232,10 +218,9 @@
             // 
             // ResetNetworkButton
             // 
-            this.ResetNetworkButton.Location = new System.Drawing.Point(251, 260);
-            this.ResetNetworkButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ResetNetworkButton.Location = new System.Drawing.Point(188, 211);
             this.ResetNetworkButton.Name = "ResetNetworkButton";
-            this.ResetNetworkButton.Size = new System.Drawing.Size(164, 28);
+            this.ResetNetworkButton.Size = new System.Drawing.Size(123, 23);
             this.ResetNetworkButton.TabIndex = 18;
             this.ResetNetworkButton.Text = "Reset Network";
             this.ResetNetworkButton.UseVisualStyleBackColor = true;
@@ -243,9 +228,9 @@
             // 
             // MnistCNNGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 314);
+            this.ClientSize = new System.Drawing.Size(368, 255);
             this.Controls.Add(this.ResetNetworkButton);
             this.Controls.Add(this.CancelNetworkButton);
             this.Controls.Add(this.NumEpochsLabel);
@@ -264,7 +249,6 @@
             this.Controls.Add(this.TrainButton);
             this.Controls.Add(this.MnistImageLabel);
             this.Controls.Add(this.MnistPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MnistCNNGUI";
             this.Text = "MNIST CNN";
             ((System.ComponentModel.ISupportInitialize)(this.MnistPictureBox)).EndInit();

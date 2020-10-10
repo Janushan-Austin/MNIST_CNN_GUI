@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MachineLearning
 {
-    public interface IDataSet
+    public interface ISupervisedDataSet
     {
-        float[] InputSet { get; set; }
-        float[] ExpectedOutputSet { get; set; }
+        float[] Input { get; set; }
+        float[] ExpectedOutput { get; set; }
     }
 }

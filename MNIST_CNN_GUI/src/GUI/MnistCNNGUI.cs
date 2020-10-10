@@ -166,7 +166,7 @@ namespace Mnist_ANN_GUI
 
         private void TrainNetwork(object sender, DoWorkEventArgs e)
         {
-            mnistNetwork.Train((int percent, bool epochComplete) =>
+            mnistNetwork.Train((float percent, bool epochComplete) =>
             {
                 if (epochComplete == true)
                 {
@@ -180,7 +180,7 @@ namespace Mnist_ANN_GUI
                    };
                     NetworkWorker.ProgressChanged += func;
                 }                
-                NetworkWorker.ReportProgress(percent);
+                NetworkWorker.ReportProgress((int)percent);
                 if (NetworkWorker.CancellationPending == true)
                 {
                     e.Cancel = true;
@@ -188,7 +188,8 @@ namespace Mnist_ANN_GUI
                 }
                 return true;
             }
-            , true);            
+            , continueLastTrainingSet: true);
+
         }
 
         private void UpdateSensitivity()
@@ -204,6 +205,7 @@ namespace Mnist_ANN_GUI
             NumEpochsComboBox.Enabled = state;
             ImageSelectionTextBox.Enabled = state;
             ResetNetworkButton.Enabled = state;
+            UseTrainingSetCheckBox.Enabled = state;
         }
 
         private void TestImageButton_Click(object sender, EventArgs e)

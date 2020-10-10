@@ -186,8 +186,8 @@ namespace MachineLearning
 
         #region Training and Testing
 
-        protected IDataSet[] TrainingSet;
-        protected IDataSet[] TestSet;
+        protected ISupervisedDataSet[] TrainingSet;
+        protected ISupervisedDataSet[] TestSet;
         public uint TrainingSetSize;
         public uint TestSetSize;
 
@@ -195,10 +195,10 @@ namespace MachineLearning
         public float TestingSensitivity { get; protected set; }
         public float TestingLoss { get; protected set; }
 
-        public virtual bool UploadTrainingSet(IDataSet[] trainingSet)
+        public virtual bool UploadTrainingSet(ISupervisedDataSet[] trainingSet)
         {
-            if (trainingSet == null || trainingSet[0].ExpectedOutputSet == null || trainingSet[0].InputSet == null ||
-               trainingSet[0].InputSet.Length != NumInputs || trainingSet[0].ExpectedOutputSet.Length != NumOutputs)
+            if (trainingSet == null || trainingSet[0].ExpectedOutput == null || trainingSet[0].Input == null ||
+               trainingSet[0].Input.Length != NumInputs || trainingSet[0].ExpectedOutput.Length != NumOutputs)
             {
                 return false;
             }
@@ -209,10 +209,10 @@ namespace MachineLearning
             return true;
         }
 
-        public virtual bool UploadTestSet(IDataSet[] testSet)
+        public virtual bool UploadTestSet(ISupervisedDataSet[] testSet)
         {
-            if (testSet == null || testSet[0].InputSet == null || testSet[0].ExpectedOutputSet == null ||
-               testSet[0].InputSet.Length != NumInputs || testSet[0].ExpectedOutputSet.Length != NumOutputs)
+            if (testSet == null || testSet[0].Input == null || testSet[0].ExpectedOutput == null ||
+               testSet[0].Input.Length != NumInputs || testSet[0].ExpectedOutput.Length != NumOutputs)
             {
                 return false;
             }
@@ -223,7 +223,7 @@ namespace MachineLearning
             return true;
         }
 
-        public virtual void Train(Func<int, bool, bool> progressFunc = null, bool continueLastTrainingSet = false)
+        public virtual void Train(Func<float, bool, bool> progressFunc = null, bool continueLastTrainingSet = false)
         {
             if (TrainingSet == null)
             {
@@ -244,7 +244,7 @@ namespace MachineLearning
                 ConfusionMatrix.ResetMatrix();
                 for (uint set = startSet; set < TrainingSetSize; set++, percent += deltaSetPercent)
                 {
-                    if (progressFunc != null && progressFunc((int)percent, false) == false)
+                    if (progressFunc != null && progressFunc(percent, false) == false)
                     {
                         earlyExit = true;
                         break;
@@ -254,7 +254,6 @@ namespace MachineLearning
                     TotalEpochs += epochCompletionPerPropagation;
                 }
                 startSet = 0;
-                CompletedEpochs++;
 
                 if (CompletedBatches > 0)
                 {
@@ -265,16 +264,14 @@ namespace MachineLearning
 
                 Test();
 
-                while (TotalEpochs - CompletedEpochs > 1.0f)
-                {
-                    CompletedEpochs++;
-                }
                 if (earlyExit == true)
                 {
                     return;
                 }
+                CompletedEpochs++;
+                TotalEpochs = CompletedEpochs;
 
-                if (progressFunc != null && progressFunc((int)percent, true) == false)
+                if (progressFunc != null && progressFunc(percent, true) == false)
                 {
                     return;
                 }
@@ -321,9 +318,9 @@ namespace MachineLearning
             TestingLoss /= TestSetSize;
             TestingSensitivity = Sensitivity();
 
-            if (ignoreLoss == false && prevLoss - TestingLoss < 1e-4)
+            if (ignoreLoss == false && TestingLoss >= .005  && prevLoss - TestingLoss < .0001f)
             {
-                m_ActivationFunction.FunctionLearningRate /= 2;
+                m_ActivationFunction.FunctionLearningRate *= .5f;
             }
         }
 
@@ -332,9 +329,9 @@ namespace MachineLearning
         #endregion
 
         #region Propagation
-        public bool Propagate(IDataSet data, bool testing = false)
+        public bool Propagate(ISupervisedDataSet data, bool testing = false)
         {
-            if (data.InputSet.Length != NumInputs || data.ExpectedOutputSet.Length != NumOutputs)
+            if (data.Input.Length != NumInputs || data.ExpectedOutput.Length != NumOutputs)
             {
                 return false;
             }
@@ -350,8 +347,8 @@ namespace MachineLearning
                 CompletedBatches = 0;
             }
 
-            InputLayer.UploadInputs(data.InputSet, CompletedBatches);
-            OutputLayer.UploadExpectedOutputs(data.ExpectedOutputSet, CompletedBatches);
+            InputLayer.UploadInputs(data.Input, CompletedBatches);
+            OutputLayer.UploadExpectedOutputs(data.ExpectedOutput, CompletedBatches);
 
             ForwardPropagate();
             if (testing == false)

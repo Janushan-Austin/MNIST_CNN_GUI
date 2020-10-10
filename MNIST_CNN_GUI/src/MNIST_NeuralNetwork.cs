@@ -10,7 +10,7 @@ public class MNIST_NeuralNetwork : NeuralNetwork
         m_ActivationFunction.FunctionLearningRate = .5f;
     }
 
-    public override void Train(Func<int, bool, bool> progressFunc, bool continueLastTrainingSet = false)
+    public override void Train(Func<float, bool, bool> progressFunc, bool continueLastTrainingSet = false)
     {
         if (TrainingSet == null)
         {
@@ -29,7 +29,7 @@ public class MNIST_NeuralNetwork : NeuralNetwork
             ConfusionMatrix.ResetMatrix();
             for (uint set = startSet; set < TrainingSetSize; set++, percent += deltaSetPercent)
             {
-                if(progressFunc((int)percent, false) == false)
+                if(progressFunc(percent, false) == false)
                 {
                     earlyExit = true;
                     break;
@@ -62,7 +62,7 @@ public class MNIST_NeuralNetwork : NeuralNetwork
                 ChangeLayerLearningRate(0, Layers[0].ActivationFunction.FunctionLearningRate / 2.0f);
             }
 
-            if(progressFunc((int)percent, true) == false)
+            if(progressFunc(percent, true) == false)
             {
                 return;
             }
