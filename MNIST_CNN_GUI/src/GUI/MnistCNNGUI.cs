@@ -36,7 +36,7 @@ namespace Mnist_ANN_GUI
             trainingImages = MnistImage.ProcessMNISTFile(trainImgPath, trainLblPath);
             testImages = MnistImage.ProcessMNISTFile(testImgPath, testLblPath);
 
-            mnistNetwork = new ConvolutionalNeuralNetwork(new ConvolutionalNeuralNetworkProps(28, 28, 45, 10, 6, 5, 5, 2, 2));
+            mnistNetwork = new ConvolutionalNeuralNetwork(new ConvolutionalNeuralNetworkProps(28, 28, 90, 10, 6, 5, 5, 2, 2));
             mnistNetwork.UploadTrainingSet(trainingImages);
             mnistNetwork.UploadTestSet(testImages);
             mnistNetwork.NumEpochs = 1;

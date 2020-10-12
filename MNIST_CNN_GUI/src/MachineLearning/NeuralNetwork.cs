@@ -318,7 +318,7 @@ namespace MachineLearning
             TestingLoss /= TestSetSize;
             TestingSensitivity = Sensitivity();
 
-            if (ignoreLoss == false && TestingLoss >= .005  && prevLoss - TestingLoss < .0001f)
+            if (ignoreLoss == false && TestingLoss >= .004  && prevLoss - TestingLoss < .0001f)
             {
                 m_ActivationFunction.FunctionLearningRate *= .5f;
             }
