@@ -173,7 +173,6 @@ namespace Mnist_ANN_GUI
                     ProgressChangedEventHandler func = null;
                     func = (object sender2, ProgressChangedEventArgs e2) =>
                    {
-
                        UpdateSensitivity();
                        TotalEpochLabel.Text = $"Total Trained Epochs: {mnistNetwork.TotalEpochs.ToString("n2")}";
                        NetworkWorker.ProgressChanged -= func;
@@ -189,7 +188,6 @@ namespace Mnist_ANN_GUI
                 return true;
             }
             , continueLastTrainingSet: true);
-
         }
 
         private void UpdateSensitivity()
