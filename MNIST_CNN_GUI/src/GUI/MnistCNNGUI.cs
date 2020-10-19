@@ -66,6 +66,7 @@ namespace Mnist_ANN_GUI
                 TrainingProgressLabel.Text = e.Cancelled == false ? $"Network Progress: {0}% (finished)" : "Network Progress: {0}% (cancelled)";
                 TrainingProgressBar.Value = 0;
                 TotalEpochLabel.Text = $"Total Trained Epochs: {mnistNetwork.TotalEpochs.ToString("n2")}";
+                TestImage();
             };
             NetworkWorker.WorkerSupportsCancellation = true;
 
@@ -125,21 +126,7 @@ namespace Mnist_ANN_GUI
             }
             MnistPictureBox.Image = bm;
 
-            mnistNetwork.Propagate(selectedImageSet[selectedImageIndex], true);
-
-            float[] testOutputs = mnistNetwork.Outputs();
-            int predictedOutputIndex = 0;
-            float predictedOutputValue = testOutputs[0];
-            for (int i = 1; i < testOutputs.Length; i++)
-            {
-                if (testOutputs[i] > predictedOutputValue)
-                {
-                    predictedOutputValue = testOutputs[i];
-                    predictedOutputIndex = i;
-                }
-            }
-
-            PredictionLabel.Text = $"Network Label Prediction: {predictedOutputIndex}";
+            TestImage();
         }
 
         private void UseTrainingSetCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -207,9 +194,13 @@ namespace Mnist_ANN_GUI
         }
 
         private void TestImageButton_Click(object sender, EventArgs e)
+        {            
+            TestImage();
+        }
+
+        private void TestImage()
         {
             mnistNetwork.Propagate(selectedImageSet[selectedImageIndex], true);
-
             float[] testOutputs = mnistNetwork.Outputs();
             int predictedOutputIndex = 0;
             float predictedOutputValue = testOutputs[0];
